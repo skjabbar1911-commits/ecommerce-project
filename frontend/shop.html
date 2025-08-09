@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DealNest - Shop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between px-4 py-3 bg-white shadow sticky top-0 z-10">
+    <div class="flex items-center gap-2">
+      <span class="font-black text-xl text-teal-700 tracking-wide">DealNest</span>
+    </div>
+    <div class="flex gap-6 items-center">
+      <a href="index.html" class="hover:text-teal-600 font-semibold">Home</a>
+      <a href="shop.html" class="hover:text-teal-600 font-semibold">Shop</a>
+      <button id="cart-btn" class="relative">
+        🛒
+        <span id="cart-count"
+          class="absolute -top-2 -right-2 bg-teal-700 text-xs text-white rounded-full px-1.5 py-0.5">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="max-w-7xl mx-auto p-4">
+    <!-- Filters -->
+    <section id="filters" class="mb-8">
+      <div class="flex flex-wrap gap-4 items-end">
+        <div>
+          <label class="block text-sm font-medium mb-1">Search</label>
+          <input id="filter-name" type="text"
+            class="w-40 border-gray-300 rounded px-3 py-1.5 focus:border-teal-400" placeholder="Product name">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Category</label>
+          <select id="filter-category"
+            class="w-40 border-gray-300 rounded px-3 py-1.5 focus:border-teal-400">
+            <option value="">All</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="books">Books</option>
+            <option value="accessories">Accessories</option>
+            <option value="home">Home</option>
+            <option value="sports">Sports</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Min Price</label>
+          <input id="filter-minprice" type="number"
+            class="w-28 border-gray-300 rounded px-3 py-1.5" placeholder="₹0">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Max Price</label>
+          <input id="filter-maxprice" type="number"
+            class="w-28 border-gray-300 rounded px-3 py-1.5" placeholder="₹9999">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Sort By</label>
+          <select id="filter-sort"
+            class="w-28 border-gray-300 rounded px-3 py-1.5 focus:border-teal-400">
+            <option value="">Default</option>
+            <option value="price-asc">Price ↑</option>
+            <option value="price-desc">Price ↓</option>
+          </select>
+        </div>
+        <button id="filter-btn"
+          class="bg-teal-700 text-white font-bold rounded px-5 py-2 hover:bg-teal-800 transition">Apply Filters</button>
+      </div>
+    </section>
+
+    <!-- Products List -->
+    <section id="products">
+      <h2 class="text-2xl font-bold text-teal-700 mb-4">Shop Products</h2>
+      <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
+    </section>
+  </main>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer" class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg z-20 transform translate-x-full transition-transform duration-200">
+    <div class="flex items-center justify-between px-5 py-4 border-b">
+      <h3 class="text-lg font-bold">Cart</h3>
+      <button id="cart-close" class="text-gray-500 hover:text-teal-700 text-2xl">&times;</button>
+    </div>
+    <div id="cart-items-container" class="p-5 flex flex-col gap-3"></div>
+    <div class="border-t px-5 py-4 flex flex-col gap-3">
+      <div class="flex justify-between font-bold">
+        <span>Total</span>
+        <span>₹<span id="cart-total">0</span></span>
+      </div>
+      <button class="bg-teal-700 text-white font-bold rounded py-2 hover:bg-teal-800">Checkout</button>
+    </div>
+  </div>
+  <div id="cart-backdrop" class="hidden fixed inset-0 bg-black bg-opacity-25 z-10"></div>
+  
+  <script src="js/shared.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>
